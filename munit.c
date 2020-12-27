@@ -1000,6 +1000,9 @@ int
 munit_rand_int_range(int min, int max) {
   munit_uint64_t range = (munit_uint64_t) max - (munit_uint64_t) min;
 
+  if ((munit_uint64_t) 0U == range)
+    return min;
+
   if (min > max)
     return munit_rand_int_range(max, min);
 
